@@ -2,14 +2,11 @@
 
 <nav class="p-3">
   <ul class="nav nav-pills">
-    <li>
-      <button routerLink="/home" class="btn btn-outline-info ms-1">Home</button>
-    </li>
-    <li>
-      <button routerLink="/products" class="btn btn-outline-info ms-1">Products</button>
-    </li>
-    <li>
-      <button routerLink="/new-product" class="btn btn-outline-info ms-1">New Product</button>
+    <li *ngFor="let btn of navButtons" class="ms-3">
+       <button routerLink="{{btn.route}}" class="btn btn-outline-success">
+         {{ btn.title }}
+         <i class="bi bi-{{btn.icon}}"></i>
+       </button>
     </li>
   </ul>
 </nav>

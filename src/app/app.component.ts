@@ -13,4 +13,9 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 export class AppComponent {
   title = 'enset-app';
   subject = "darkness my old friend";
+  navButtons: Array<any> = [
+    {title: "Home", route: "/home", icon: "house"},
+    {title: "Products", route: "/products", icon: "search"},
+    {title: "New Product", route: "/new-product", icon: "safe"}
+  ];
 }
