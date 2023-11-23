@@ -3,7 +3,10 @@
 <nav class="p-3">
   <ul class="nav nav-pills">
     <li *ngFor="let btn of navButtons" class="ms-3">
-       <button routerLink="{{btn.route}}" class="btn btn-outline-success">
+       <button routerLink="{{btn.route}}"
+               [class]="btn==lastClickedButton? 'btn btn-success' : 'btn btn-outline-success'"
+               (click)="setLastClickedButton(btn)"
+       >
          {{ btn.title }}
          <i class="bi bi-{{btn.icon}}"></i>
        </button>
