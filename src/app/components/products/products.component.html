@@ -19,6 +19,11 @@
                 <i [class]="product.checked? 'bi bi-check' : 'bi bi-circle'"></i>
               </button>
             </td>
+            <td>
+              <button (click)="handleProductDelete(product)" class="btn btn-outline-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

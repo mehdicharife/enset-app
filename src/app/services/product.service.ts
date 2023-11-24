@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../model/product.model";
 
@@ -20,5 +20,9 @@ export class ProductService {
     return this.httpClient.patch<Product>(`http://localhost:8089/products/${product.id}`,
       {checked : !product.checked}
     );
+  }
+
+  public deleteProduct(product : Product) {
+    return this.httpClient.delete(`http://localhost:8089/products/${product.id}`)
   }
 }

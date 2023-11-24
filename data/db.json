@@ -4,12 +4,6 @@
       "id": 1,
       "name": "Computer",
       "price": 5500,
-      "checked": true
-    },
-    {
-      "id": 2,
-      "name": "Printer",
-      "price": 2840,
       "checked": false
     },
     {
