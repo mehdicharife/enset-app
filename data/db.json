@@ -10,7 +10,7 @@
       "id": 2,
       "name": "Printer",
       "price": 2840,
-      "checked": false
+      "checked": true
     },
     {
       "id": 3,
