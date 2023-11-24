@@ -15,7 +15,7 @@
             <td>{{ product.name }}</td>
             <td>{{ product.price }}</td>
             <td>
-              <button (click)="product.checked = !product.checked"   class="btn btn-outline-success">
+              <button (click)="onProductCheck(product)" class="btn btn-outline-success">
                 <i [class]="product.checked? 'bi bi-check' : 'bi bi-circle'"></i>
               </button>
             </td>
