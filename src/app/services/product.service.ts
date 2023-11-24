@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Product} from "../model/product.model";
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,12 @@ export class ProductService {
     this.httpClient = httpClient;
   }
 
-  public getProducts() : Observable<Array<any>> {
-    return this.httpClient.get<Array<any>>("http://localhost:8089/products");
+  public getProducts() : Observable<Array<Product>> {
+    return this.httpClient.get<Array<Product>>("http://localhost:8089/products");
   }
 
-  public checkProduct(product : any) {
-    return this.httpClient.patch<any>(`http://localhost:8089/products/${product.id}`,
+  public checkProduct(product : Product) {
+    return this.httpClient.patch<Product>(`http://localhost:8089/products/${product.id}`,
       {checked : !product.checked}
     );
   }
