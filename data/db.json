@@ -11,6 +11,24 @@
       "name": "Smart Phone",
       "price": 6500,
       "checked": true
+    },
+    {
+      "name": "Coffee Table",
+      "price": 754,
+      "checked": true,
+      "id": 4
+    },
+    {
+      "name": "Spoon",
+      "price": 454,
+      "checked": false,
+      "id": 5
+    },
+    {
+      "name": "Foo",
+      "price": 454545,
+      "checked": false,
+      "id": 6
     }
   ]
 }
