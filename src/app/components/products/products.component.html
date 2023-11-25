@@ -4,6 +4,13 @@
       <h3>Products Component</h3>
     </div>
     <div class="card-body">
+      <div class="flex mb-1">
+        <input type="text" [(ngModel)]="keyword">
+        <button (click)="searchProducts()" class="btn btn-outline-success ms-2">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+
       <table class="table">
         <thead>
           <tr>
