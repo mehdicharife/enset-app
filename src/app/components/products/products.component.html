@@ -33,6 +33,17 @@
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <ul class="nav nav-pills">
+            <li *ngFor="let page of [].constructor(pagesCount); let pageIndex = index;" class="m-1">
+              <button
+                (click)="switchToProductsPage(pageIndex + 1)"
+                [class]="pageIndex + 1 == currentPage? 'btn btn-success' : 'btn btn-outline-success'">
+                {{ pageIndex + 1 }}
+              </button>
+            </li>
+          </ul>
+        </tfoot>
       </table>
     </div>
   </div>

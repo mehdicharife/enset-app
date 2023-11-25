@@ -12,8 +12,13 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit{
-  products : Array<Product> = [];
   private productService : ProductService;
+  products : Array<Product> = [];
+
+  public productPerPageCount : number = 4;
+  public pagesCount : number = 1;
+  public currentPage : number = 1;
+
   public keyword! : string;
 
   constructor(productService : ProductService) {
@@ -21,12 +26,15 @@ export class ProductsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.setProducts();
+    this.setProductsFromPage(1, this.productPerPageCount);
   }
 
-  setProducts() {
-    this.productService.getProducts().subscribe({
-      next : value => this.products = value,
+  setProductsFromPage(page:number, pageSize:number) {
+    this.productService.getProductsPage(page, pageSize).subscribe({
+      next : (response) => {
+        this.products = response.body as Product[];
+        this.pagesCount = Math.ceil(parseInt(response.headers.get('x-total-count') as string) / this.productPerPageCount);
+      },
       error : err => console.log(err)
     });
   }
@@ -50,5 +58,10 @@ export class ProductsComponent implements OnInit{
       next : value => { this.products = value},
       error : err => { console.log(err) }
     })
+  }
+
+  switchToProductsPage(pageIndex : number) {
+    this.setProductsFromPage(pageIndex, this.productPerPageCount);
+    this.currentPage = pageIndex;
   }
 }

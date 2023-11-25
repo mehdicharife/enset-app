@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../model/product.model";
 
@@ -32,5 +32,10 @@ export class ProductService {
 
   public searchProducts(keyword : string) : Observable<Array<Product>> {
     return this.httpClient.get<Array<Product>>(`http://localhost:8089/products?name_like=${keyword}`);
+  }
+
+  public getProductsPage(page:number, pageSize:number) : Observable<HttpResponse<Array<Product>>> {
+    return this.httpClient.get<Array<Product>>(`http://localhost:8089/products?_page=${page}&_limit=${pageSize}`,
+                            {observe: 'response'});
   }
 }
