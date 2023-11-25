@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit{
   public pagesCount : number = 1;
   public currentPage : number = 1;
 
-  public keyword! : string;
+  public keyword : string = "";
 
   constructor(productService : ProductService) {
     this.productService = productService;
@@ -29,8 +29,11 @@ export class ProductsComponent implements OnInit{
     this.setProductsFromPage(1, this.productPerPageCount);
   }
 
-  setProductsFromPage(page:number, pageSize:number) {
-    this.productService.getProductsPage(page, pageSize).subscribe({
+  setProductsFromPage(page: number, pageSize: number) {
+    this.setProductsFromKeywordMatchingProductsPage("", page, pageSize);
+  }
+  setProductsFromKeywordMatchingProductsPage(keyword:string, page:number, pageSize:number) {
+    this.productService.getNthPageOfKeywordMatchingProducts(keyword, page, pageSize).subscribe({
       next : (response) => {
         this.products = response.body as Product[];
         this.pagesCount = Math.ceil(parseInt(response.headers.get('x-total-count') as string) / this.productPerPageCount);
@@ -54,14 +57,16 @@ export class ProductsComponent implements OnInit{
   }
 
   searchProducts() {
-    this.productService.searchProducts(this.keyword).subscribe({
-      next : value => { this.products = value},
+    this.productService
+      .getNthPageOfKeywordMatchingProducts(this.keyword, 1, this.productPerPageCount)
+      .subscribe({
+      next : value => { this.products = value.body as Product[] },
       error : err => { console.log(err) }
     })
   }
 
   switchToProductsPage(pageIndex : number) {
-    this.setProductsFromPage(pageIndex, this.productPerPageCount);
+    this.setProductsFromKeywordMatchingProductsPage(this.keyword, pageIndex, this.productPerPageCount)
     this.currentPage = pageIndex;
   }
 }

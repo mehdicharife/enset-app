@@ -38,4 +38,9 @@ export class ProductService {
     return this.httpClient.get<Array<Product>>(`http://localhost:8089/products?_page=${page}&_limit=${pageSize}`,
                             {observe: 'response'});
   }
+
+  public getNthPageOfKeywordMatchingProducts(keyword:string, pageIndex:number, productPerPageCount:number) : Observable<HttpResponse<Array<Product>>> {
+    return this.httpClient.get<Array<Product>>(`http://localhost:8089/products?name_like=${keyword}&_page=${pageIndex}&_limit=${productPerPageCount}`,
+      {observe : 'response'});
+  }
 }

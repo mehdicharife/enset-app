@@ -27,7 +27,7 @@
     {
       "name": "Foo",
       "price": 454545,
-      "checked": false,
+      "checked": true,
       "id": 6
     }
   ]
