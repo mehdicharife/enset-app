@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../model/product.model";
 import {FormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 })
 export class ProductsComponent implements OnInit{
   private productService : ProductService;
+  private router : Router;
   products : Array<Product> = [];
 
   public productPerPageCount : number = 4;
@@ -21,8 +23,9 @@ export class ProductsComponent implements OnInit{
 
   public keyword : string = "";
 
-  constructor(productService : ProductService) {
+  constructor(productService : ProductService, router : Router) {
     this.productService = productService;
+    this.router = router;
   }
 
   ngOnInit() {
@@ -68,5 +71,9 @@ export class ProductsComponent implements OnInit{
   switchToProductsPage(pageIndex : number) {
     this.setProductsFromKeywordMatchingProductsPage(this.keyword, pageIndex, this.productPerPageCount)
     this.currentPage = pageIndex;
+  }
+
+  handleProductEdit(product : Product) {
+    this.router.navigateByUrl(`/product-edit/${product.id}`);
   }
 }
