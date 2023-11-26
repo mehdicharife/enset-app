@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
+import {NavbarComponent} from "./navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 
@@ -16,15 +17,4 @@ export class AppComponent {
 
   subject = "darkness my old friend";
 
-  navButtons: Array<any> = [
-    {title: "Home", route: "/home", icon: "house"},
-    {title: "Products", route: "/products", icon: "search"},
-    {title: "New Product", route: "/new-product", icon: "safe"}
-  ];
-
-  lastClickedButton : any;
-
-  setLastClickedButton(button : any) {
-    this.lastClickedButton = button;
-  }
 }
