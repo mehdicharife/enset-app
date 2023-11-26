@@ -16,6 +16,10 @@ export class ProductService {
     return this.httpClient.get<Array<Product>>("http://localhost:8089/products");
   }
 
+  public getProductById(id : number) : Observable<Product>{
+    return this.httpClient.get<Product>(`http://localhost:8089/products/${id}`);
+  }
+
   public checkProduct(product : Product) {
     return this.httpClient.patch<Product>(`http://localhost:8089/products/${product.id}`,
       {checked : !product.checked}
@@ -28,6 +32,10 @@ export class ProductService {
 
   public saveProduct(product : Product) : Observable<Product> {
     return this.httpClient.post<Product>("http://localhost:8089/products/", product);
+  }
+
+  public updateProduct(product : Product) : Observable<Product> {
+    return this.httpClient.put<Product>(`http://localhost:8089/products/${product.id}`, product);
   }
 
   public searchProducts(keyword : string) : Observable<Array<Product>> {

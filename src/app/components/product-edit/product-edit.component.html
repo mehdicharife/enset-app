@@ -3,5 +3,22 @@
     <div class="card-header">
       {{ productId }}
     </div>
+    <div class="card-body">
+      <form [formGroup]="productEditForm" (ngSubmit)="updateProduct()">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label class="form-labe">Price</label>
+          <input type="text" class="form-control" formControlName="price">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Checked</label>
+          <input type="checkbox" class="form-check-input" formControlName="checked">
+        </div>
+        <button [disabled]="productEditForm.invalid" class="btn btn-success">Update</button>
+      </form>
+    </div>
   </div>
 </div>
