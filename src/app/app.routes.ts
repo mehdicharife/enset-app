@@ -2,10 +2,13 @@ import {Route, Routes} from '@angular/router';
 import {HomeComponent} from "./components/home/home.component";
 import {ProductsComponent} from "./components/products/products.component";
 import {NewProductComponent} from "./components/new-product/new-product.component";
+import {authGuard} from "./guards/auth.guard";
 
 export const routes: Route[] = [
-  {path: 'navbar',
+  {
+    path: 'navbar',
     loadComponent: () => import("./components/navbar/navbar.component").then(mod => mod.NavbarComponent),
+    canActivate:  [authGuard],
     children: [
       {path: 'products', loadComponent: () => import("./components/products/products.component").then(mod => mod.ProductsComponent)},
       {path: 'new-product', loadComponent: () => import("./components/new-product/new-product.component").then(mod => mod.NewProductComponent)},
