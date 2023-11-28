@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
+import {AuthenticationService} from "../../services/authentication.service";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,13 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 export class LoginComponent implements OnInit{
   public loginForm! : FormGroup;
   private formBuilder : FormBuilder;
+  private authService : AuthenticationService;
+  private router : Router;
 
-  constructor(formBuilder : FormBuilder) {
+  constructor(formBuilder : FormBuilder, authService : AuthenticationService, router : Router) {
     this.formBuilder = formBuilder;
+    this.authService = authService;
+    this.router = router;
   }
 
   ngOnInit() {
@@ -25,8 +31,13 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  login() {
-
+  async login() {
+    await this.authService.login(this.loginForm.value.username, this.loginForm.value.password);
+    if(this.authService.isAuthenticated) {
+      await this.router.navigateByUrl('/navbar');
+    } else {
+      alert("Bad credentials!");
+    }
   }
 
 }

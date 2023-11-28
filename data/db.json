@@ -1,4 +1,40 @@
 {
+  "users": [
+    {
+      "id": "medi",
+      "username": "mehdi",
+      "email": "mehdi_charife@um5.ac.ma",
+      "password": "bestPassword",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtZWRpIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyMzkwMjIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJNZWhkaSIsImxhc3RuYW1lIjoiQ2hhcmlmZSIsImVtYWlsIjoibWVoZGlfY2hhcmlmZUB1bTUuYWMubWEiLCJyb2xlcyI6WyJVU0VSIl19.Y7Re-LCmXtsJR8b_bbwukoro-BQ-rTwlDggen5VkaAw"
+    },
+    {
+      "id": "idem",
+      "username": "idhem",
+      "password": "NDMyMQ==",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpZGVtIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyMzkwMjIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJNZWhkaSIsImxhc3RuYW1lIjoiQ2hhcmlmZSIsImVtYWlsIjoibWVoZGlfY2hhcmlmZUB1bTUuYWMubWEiLCJyb2xlcyI6WyJVU0VSIl19.DDOH3votxgTiu9w_aDapIDhuW8_moYWOLg0_bDcSyEA"
+    },
+    {
+      "id": "admin",
+      "username": "admin",
+      "password": "YWRtaW4=",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg4ODgvYXV0aCIsIm5iZiI6MTUxNjIzOTAyMiwiZmlyc3RuYW1lIjoiTWVoZGkiLCJsYXN0bmFtZSI6IkNoYXJpZmUiLCJlbWFpbCI6Im1laGRpX2NoYXJpZmVAdW01LmFjLm1hIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.oscK8NO9v46PRgFG49XBVSRsWorMA9__0idfjbKsmLw"
+    },
+    {
+      "email": "mehdicharife@yahoo.com",
+      "password": "$2a$10$LTyMJ.YDVU0pwytGORCcY.xiR0IQpGucj6qFZlM4Zb2b.ngQ1PORO",
+      "id": "rAJXYUB"
+    }
+  ],
   "products": [
     {
       "id": 1,

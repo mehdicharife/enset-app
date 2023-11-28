@@ -17,6 +17,7 @@ export const routes: Route[] = [
   {path: 'new-product', loadComponent: () => import("./components/new-product/new-product.component").then(mod => mod.NewProductComponent)},*/
   {path: 'product-edit/:id', loadComponent: () => import("./components/product-edit/product-edit.component").then(mod => mod.ProductEditComponent)},
   {path: 'login', loadComponent: () => import("./components/login/login.component").then(mod => mod.LoginComponent)},
-  {path: '', loadComponent: () => import("./components/login/login.component").then(mod => mod.LoginComponent)}
+  {path: '', loadComponent: () => import("./components/login/login.component").then(mod => mod.LoginComponent)},
+  {path: 'home', loadComponent: () => import("./components/home/home.component").then(mod => mod.HomeComponent)}
 
 ];
